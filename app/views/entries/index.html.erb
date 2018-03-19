@@ -1,0 +1,8 @@
+<h1>Fake News</h1>
+<% @entries.each do |entry| %>
+  <h2><%= link_to entry.title, entry_path(entry) %></h2>
+  <p><%= link_to entry.summary.truncate(200), entry_path(entry) %></p>
+  <p><%= link_to entry.body.truncate(500), entry_path(entry) %></p>
+<% end %>
+
+<%= paginate @entries %>
