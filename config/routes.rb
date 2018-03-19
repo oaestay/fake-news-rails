@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :entries
+  resources :entry_comments
 end

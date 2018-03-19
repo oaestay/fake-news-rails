@@ -5,4 +5,5 @@
   <h2><%= link_to entry.title, entry_path(entry) %></h2>
   <p><%= link_to entry.summary.truncate(200), entry_path(entry) %></p>
   <p><%= link_to entry.body.truncate(500), entry_path(entry) %></p>
+  <p><%= link_to "#{entry.entry_comments.count} comments.", entry_path(entry) %></p>
 <% end %>

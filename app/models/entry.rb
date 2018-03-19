@@ -1,4 +1,6 @@
 class Entry < ApplicationRecord
+  has_many :entry_comments
+
   default_scope { order(created_at: :desc) }
 end
 
