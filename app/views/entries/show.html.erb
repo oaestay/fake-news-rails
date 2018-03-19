@@ -1,18 +1,24 @@
-<h1><%= @entry.title %></h1>
-<h4><%= @entry.summary %></h4>
-<p><%= @entry.body %></p>
-<br>
-<div>
-  <%= form_for :comment_entry, url: entry_comments_path do |f| %>
-  Name: <%= f.text_field :author %><br />
-  <%= f.text_area :body %><br />
-  <%= f.hidden_field :entry_id, :value => @entry.id %>
-  <%= f.submit "Coment" %>
-<% end %>
-</div>
-<% @entry.entry_comments.each do |comment| %>
-<p><%= comment.author %>:</p>
-<p><%= comment.body %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @entry.title %></h1>
+      <h4><%= @entry.summary %></h4>
+      <p><%= @entry.body %></p>
+      <hr>
+      <%= form_for :comment_entry, url: entry_comments_path, class: "input-group mb-3" do |f| %>
+      Name: <%= f.text_field :author, class: "form-control" %><br />
+      <%= f.text_area :body, class: "form-control" %><br />
+      <%= f.hidden_field :entry_id, value: @entry.id %>
+      <%= f.submit "Coment" %>
+      <% end %>
+      <hr>
+      <% @entry.entry_comments.each do |comment| %>
+      <p><%= comment.author %>:</p>
+      <p><%= comment.body %></p>
+      <hr>
+      <% end %>
 
-<%= link_to "Back", root_path %>
+      <%= link_to "Back", root_path %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,8 @@
 class EntryComment < ApplicationRecord
   belongs_to :entry
+
+  validates :author, presence: true
+  validates :body, presence: true
 end
 
 # == Schema Information
